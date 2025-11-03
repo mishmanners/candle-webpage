@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+
 :root{
     /* Adjust this value to align candle base with the visible table surface in your image */
     --table-surface: 120px;
@@ -155,7 +157,7 @@ body {
 /* Caption / text under the scene - keep visible over the table but near the candle */
 .text {
     text-align: center;
-    font-family: 'Great Vibes', 'Brush Script MT', cursive;
+    font-family: 'Style Script', 'Great Vibes', cursive;
     font-size: 22px;
     color: #fff9f0;
     margin-top: 18px;
