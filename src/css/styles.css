@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 :root{
     /* Adjust this value to align candle base with the visible table surface in your image */
@@ -170,6 +171,27 @@ body {
     transform: translateX(-50%);
     top: 20px;
     z-index: 5;
+}
+
+/* Footer styles */
+.site-footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.95);
+    padding: 8px 12px;
+    z-index: 10;
+    display:flex;
+    justify-content:center;
+}
+.footer-text{
+    color:#ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.5rem;
+    text-align: center;
+    margin:0;
+    opacity:0.95;
 }
 
 /* small responsiveness */
