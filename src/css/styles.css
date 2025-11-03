@@ -11,6 +11,7 @@
 }
 
 body {
+    /* try a root-relative path first, then fall back to the original relative path */
     background-image: url('../images/table.jpeg');
     background-size: cover;
     background-position: bottom center;
@@ -37,9 +38,9 @@ body {
     background: linear-gradient(to top, var(--candle-color-bottom) 0%, var(--candle-color-top) 60%);
     border-radius: 12px 12px 8px 8px;
     width: 20%;
-    height: calc(100% - 500px);
+    height: calc(100% - 600px);
     position: absolute;
-    bottom: 36px; /* leaves room for the stand underneath */
+    bottom: 100px; /* to sit above the footer, but also above the main section of the table */
     left: 40%; /* center within the .candle-container */
     box-shadow: 0 8px 18px rgba(0,0,0,0.45), inset 0 -8px 18px rgba(0,0,0,0.12);
     overflow: visible;
