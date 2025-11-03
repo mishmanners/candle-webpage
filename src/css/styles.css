@@ -1,0 +1,64 @@
+body {
+    background-image: url('../images/table.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.candle-container {
+    position: relative;
+    width: 100px;
+    height: 200px;
+}
+
+.candle {
+    background: linear-gradient(to top, #f8d7a0, #f1c40f);
+    border-radius: 10px;
+    width: 50px;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+}
+
+.flame {
+    background: radial-gradient(circle, #ffcc00, transparent);
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.stand {
+    background: #8B4513;
+    width: 70px;
+    height: 10px;
+    position: absolute;
+    bottom: 150px;
+    left: 15px;
+    border-radius: 5px;
+}
+
+.text {
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 20px;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
