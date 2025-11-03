@@ -1,6 +1,16 @@
+:root{
+    /* Adjust this value to align candle base with the visible table surface in your image */
+    --table-surface: 120px;
+    --candle-width: 60px;
+    --candle-height: 220px;
+    --candle-color-top: #fff9e6;
+    --candle-color-bottom: #f2c76b;
+}
+
 body {
     background-image: url('../images/table.jpeg');
     background-size: cover;
+    background-position: bottom center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,57 +18,161 @@ body {
     margin: 0;
 }
 
+/* place the candle container on top of the table surface */
 .candle-container {
-    position: relative;
-    width: 100px;
-    height: 200px;
+    position: absolute; /* placed relative to the viewport so we can align to table photo */
+    bottom: var(--table-surface); /* tweak to sit the candle on the tabletop */
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--candle-width);
+    height: var(--candle-height);
+    pointer-events: none;
 }
 
+/* Candle body */
 .candle {
-    background: linear-gradient(to top, #f8d7a0, #f1c40f);
-    border-radius: 10px;
-    width: 50px;
-    height: 150px;
+    background: linear-gradient(to top, var(--candle-color-bottom) 0%, var(--candle-color-top) 60%);
+    border-radius: 12px 12px 8px 8px;
+    width: 20%;
+    height: calc(100% - 500px);
     position: absolute;
-    bottom: 0;
-    left: 25px;
+    bottom: 36px; /* leaves room for the stand underneath */
+    left: 35%; /* moved from 0 to 35% to position off-center left */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.45), inset 0 -8px 18px rgba(0,0,0,0.12);
+    overflow: visible;
 }
 
-.flame {
-    background: radial-gradient(circle, #ffcc00, transparent);
-    width: 20px;
-    height: 30px;
+/* Slight rounded top indent and wax rim */
+.candle::before{
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56%;
+    height: 12px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.85), rgba(0,0,0,0.02));
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25) inset;
+}
+
+/* Wick centered on top of candle */
+.candle::after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 10px;
+    background: #2b2b2b;
+    border-radius: 2px;
+}
+
+/* Wax drips - decorative using pseudo elements on container to avoid HTML changes */
+.candle-container .drip1,
+.candle-container .drip2 {
+    position: absolute;
+    bottom: 70px;
+    background: linear-gradient(#fff9e6, #f2c76b);
+    width: 4px;  /* reduced from 8px for better proportion */
+    height: 14px; /* reduced from 18px for better proportion */
+    border-radius: 3px; /* adjusted to match new width */
+    transform-origin: top center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.candle-container .drip1{ left: 8px; transform: rotate(-8deg) scale(0.95); }
+.candle-container .drip2{ left: 34px; transform: rotate(6deg) scale(0.85); }
+
+/* Flame with inner core and outer glow */
+.flame{
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 36px;
+    background: radial-gradient(circle at 50% 30%, #fff6c8 0%, #ffd35b 18%, rgba(255,153,34,0.95) 42%, rgba(255,100,20,0.6) 70%, transparent 71%);
+    border-radius: 50% 50% 40% 40%;
+    filter: blur(0.6px);
+    z-index: 4;
+    mix-blend-mode: screen;
+    transform-origin: bottom center;
+    animation: flame-flicker 1.2s infinite;
+}
+
+/* tiny inner core for extra brightness */
+.flame::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 16px;
+    background: radial-gradient(circle, #ffffff 0%, #ffeaa7 50%, transparent 60%);
+    border-radius: 50%;
+    z-index: 5;
+}
+
+/* outer glow */
+.flame::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    background: radial-gradient(circle at 50% 30%, rgba(255,220,120,0.22), rgba(255,140,40,0.08) 35%, transparent 60%);
+    filter: blur(18px);
+    z-index: 3;
+    pointer-events: none;
+}
+
+@keyframes flame-flicker{
+    0% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+    25% { transform: translateX(-48%) scale(1.03) translateY(-1px); opacity: 0.95; }
+    50% { transform: translateX(-50%) scale(0.98) translateY(1px); opacity: 0.92; }
+    75% { transform: translateX(-52%) scale(1.02) translateY(-2px); opacity: 0.97; }
+    100% { transform: translateX(-50%) scale(1) translateY(0); opacity: 1; }
+}
+
+/* Stand / plate beneath the candle */
+.stand {
+    background: linear-gradient(180deg, #7a4520 0%, #4b2b15 60%);
+    width: 180px;
+    height: 28px;
+    position: absolute;
+    bottom: 0; /* sits at the very bottom of the container */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50% / 60%;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.6), inset 0 -6px 12px rgba(0,0,0,0.25);
+    z-index: 1;
+}
+
+/* Caption / text under the scene - keep visible over the table but near the candle */
+.text {
+    text-align: center;
+    font-family: 'Great Vibes', 'Brush Script MT', cursive;
+    font-size: 22px;
+    color: #fff9f0;
+    margin-top: 18px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    width: 80%;
+    max-width: 720px;
+    line-height: 1.2;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 50%;
-    animation: flicker 1s infinite;
+    bottom: calc(var(--table-surface) - 70px); /* position just above table surface */
+    z-index: 5;
 }
 
-@keyframes flicker {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.7;
-    }
-}
-
-.stand {
-    background: #8B4513;
-    width: 70px;
-    height: 10px;
-    position: absolute;
-    bottom: 150px;
-    left: 15px;
-    border-radius: 5px;
-}
-
-.text {
-    text-align: center;
-    font-family: 'Brush Script MT', cursive;
-    font-size: 20px;
-    color: #fff;
-    margin-top: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+/* small responsiveness */
+@media (max-width:480px){
+    :root{ --table-surface: 90px; --candle-width: 44px; }
+    .stand{ width: 120px; height: 20px; }
+    .text{ font-size:18px; bottom: calc(var(--table-surface) - 60px); }
 }
