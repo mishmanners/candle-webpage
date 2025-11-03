@@ -1,22 +1,8 @@
-# Candle Webpage
+# Celebrating All Hallow's Eve
 
-This project creates a beautiful single webpage featuring a flickering candle on a lovely wooden table. The candle symbolizes remembrance, with a heartfelt message displayed beneath it.
+This project creates a beautiful webpage featuring a flickering candle on a lovely wooden table. The candle symbolises remembrance, showing why we celebrate Halloween, AKA All Hallow's Eve.
 
-## Project Structure
-
-```
-candle-webpage
-├── src
-│   ├── index.html        # Main HTML document for the webpage
-│   ├── css
-│   │   └── styles.css    # CSS styles for the webpage
-│   ├── js
-│   │   └── main.js       # JavaScript for flickering candle effect
-│   └── images
-│       └── table.jpg     # Image of a wooden table
-├── README.md             # Documentation for the project
-└── .gitignore            # Files and directories to ignore in version control
-```
+This is a submission for the [DEV Frontend Challenge](https://dev.to/challenges/frontend-2025-10-15).
 
 ## Setup Instructions
 
@@ -34,7 +20,3 @@ candle-webpage
 
 4. **Flickering Effect**: 
    The flickering effect of the candlelight is controlled by the `src/js/main.js` file. You can adjust the animation parameters as needed.
-
-## Acknowledgments
-
-This project is dedicated to all those who we remember in their hearts, that they may find their way.
