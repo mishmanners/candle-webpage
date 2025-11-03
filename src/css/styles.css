@@ -39,7 +39,7 @@ body {
     height: calc(100% - 500px);
     position: absolute;
     bottom: 36px; /* leaves room for the stand underneath */
-    left: 35%; /* moved from 0 to 35% to position off-center left */
+    left: 40%; /* center within the .candle-container */
     box-shadow: 0 8px 18px rgba(0,0,0,0.45), inset 0 -8px 18px rgba(0,0,0,0.12);
     overflow: visible;
 }
@@ -158,7 +158,7 @@ body {
 .text {
     text-align: center;
     font-family: 'Style Script', 'Great Vibes', cursive;
-    font-size: 22px;
+    font-size: 50px;
     color: #fff9f0;
     margin-top: 18px;
     text-shadow: 0 2px 6px rgba(0,0,0,0.7);
@@ -168,7 +168,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: calc(var(--table-surface) - 70px); /* position just above table surface */
+    top: 20px;
     z-index: 5;
 }
 
