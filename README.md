@@ -16,7 +16,7 @@ This is a submission for the [DEV Frontend Challenge](https://dev.to/challenges/
    Open the `src/index.html` file in your web browser to view the webpage.
 
 3. **Modify Styles**: 
-   You can customize the appearance of the candle and text by editing the `src/css/styles.css` file.
+   You can customise the appearance of the candle and text by editing the `src/css/styles.css` file.
 
 4. **Flickering Effect**: 
    The flickering effect of the candlelight is controlled by the `src/js/main.js` file. You can adjust the animation parameters as needed.
