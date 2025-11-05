@@ -4,6 +4,8 @@ This project creates a beautiful webpage featuring a flickering candle on a love
 
 This is a submission for the [DEV Frontend Challenge](https://dev.to/challenges/frontend-2025-10-15).
 
+<img width="1374" height="1054" alt="Website home page" src="https://github.com/user-attachments/assets/0ca0f8be-35c7-484c-a3e8-09082bf02151" />
+
 ## Setup Instructions
 
 1. **Clone the Repository**: 
